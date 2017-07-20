@@ -5,6 +5,7 @@ import qwe.asd.zxc.models.Topic;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,14 @@ public class TopicDao {
                                                .stream()
                                                 .filter(predicate)
                                                 .collect(Collectors.toList());
+        try {
+            Topic topic = Arrays.asList(topics)
+                    .stream()
+                    .filter(predicate)
+                    .findFirst().get();
+        } catch (NoSuchElementException ex){
+            ex.printStackTrace();
+        }
         System.out.println("output from TOPIC DAO !" + listWithOneElement.size());
         return listWithOneElement.get(0);
     }
