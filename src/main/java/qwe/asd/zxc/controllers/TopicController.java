@@ -1,9 +1,11 @@
 package qwe.asd.zxc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import qwe.asd.zxc.models.Topic;
+import qwe.asd.zxc.services.TopicService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,13 +16,12 @@ import java.util.List;
 @RestController
 public class TopicController {
 
+    @Autowired
+    private TopicService topicService;
+
     @RequestMapping(value = "/topics", method = RequestMethod.GET)
     public List<Topic> getAllTopics(){
-        Topic[] topics = {
-                new Topic("spring","Spring Framework","Spring Framework Description"),
-                new Topic("java","Core Java","Core Java Description"),
-                new Topic("javascript","JavaScript","Javascript Description")
-        };
+        Topic[] topics = topicService.getTopics();
         return Arrays.asList(topics);
     }
 }
