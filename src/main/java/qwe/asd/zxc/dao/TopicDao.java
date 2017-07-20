@@ -46,4 +46,11 @@ public class TopicDao {
     public void postTopic(Topic topic) {
         topics.add(topic);
     }
+
+    public void putTopic(Topic topic, String id) {
+        Predicate<Topic> predicate = top -> top.getId().equalsIgnoreCase(id);
+        Topic oldTopic = topics.stream().filter(predicate).findFirst().get();
+        oldTopic.setName(topic.getName());
+        oldTopic.setDescription(topic.getDescription());
+    }
 }

@@ -27,4 +27,8 @@ public class TopicService {
     public void postTopic(Topic topic) {
         topicDao.postTopic(topic);
     }
+
+    public void putTopic(Topic topic, String id) {
+        topicDao.putTopic(topic,id);
+    }
 }
