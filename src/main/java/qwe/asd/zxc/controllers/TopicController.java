@@ -1,10 +1,7 @@
 package qwe.asd.zxc.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import qwe.asd.zxc.models.Topic;
 import qwe.asd.zxc.services.TopicService;
 
@@ -22,13 +19,17 @@ public class TopicController {
 
     @RequestMapping(value = "/topics", method = RequestMethod.GET)
     public List<Topic> getAllTopics(){
-        Topic[] topics = topicService.getTopics();
-        return Arrays.asList(topics);
+        return topicService.getTopics();
     }
 
     @RequestMapping(value = "/topics/{id}", method = RequestMethod.GET)
     public Topic getTopic(@PathVariable String id){
         Topic topic = topicService.getTopic(id);
         return topic;
+    }
+
+    @RequestMapping(value = "/topics", method = RequestMethod.POST)
+    public void postTopic(@RequestBody Topic topic){
+        topicService.postTopic(topic);
     }
 }
