@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by papillon on 7/20/2017.
  */
 @RestController
-public class HelloController {
+public class TopicController {
 
-    @RequestMapping("/hello")
-    public String sayHi(){
-        return "Hi";
+    @RequestMapping("/topics")
+    public String getAllTopics(){
+        return "All Topics";
     }
 }
