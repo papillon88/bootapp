@@ -17,4 +17,8 @@ public class TopicService {
     public Topic[] getTopics() {
         return topicDao.getTopics();
     }
+
+    public Topic getTopic(String id) {
+        return topicDao.getTopic(id);
+    }
 }
