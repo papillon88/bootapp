@@ -1,10 +1,15 @@
 package qwe.asd.zxc.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by papillon on 7/20/2017.
  */
+@Entity
 public class Topic {
 
+    @Id
     private String id;
     private String name;
     private String description;
