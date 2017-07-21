@@ -31,4 +31,8 @@ public class TopicService {
     public void putTopic(Topic topic, String id) {
         topicDao.putTopic(topic,id);
     }
+
+    public void deleteTopic(String id) {
+        topicDao.deleteTopic(id);
+    }
 }

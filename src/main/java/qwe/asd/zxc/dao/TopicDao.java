@@ -53,4 +53,9 @@ public class TopicDao {
         oldTopic.setName(topic.getName());
         oldTopic.setDescription(topic.getDescription());
     }
+
+    public void deleteTopic(String id) {
+        Predicate<Topic> predicate = top -> top.getId().equalsIgnoreCase(id);
+        topics.removeIf(predicate);
+    }
 }
