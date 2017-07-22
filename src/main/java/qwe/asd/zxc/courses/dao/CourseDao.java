@@ -15,27 +15,27 @@ import java.util.List;
 public class CourseDao {
 
     @Autowired
-    private CourseRepository topicRepository;
+    private CourseRepository courseRepository;
 
     public List<Course> getTopics() {
         List<Course> topic = new ArrayList<>();
-        topicRepository.findAll().forEach(topic::add);
+        courseRepository.findAll().forEach(topic::add);
         return topic;
     }
 
     public Course getTopic(String id) {
-        return topicRepository.findOne(id);
+        return courseRepository.findOne(id);
     }
 
     public void postTopic(Course topic) {
-        topicRepository.save(topic);
+        courseRepository.save(topic);
     }
 
     public void putTopic(Course topic, String id) {
-        topicRepository.save(topic);
+        courseRepository.save(topic);
     }
 
     public void deleteTopic(String id) {
-        topicRepository.delete(id);
+        courseRepository.delete(id);
     }
 }
