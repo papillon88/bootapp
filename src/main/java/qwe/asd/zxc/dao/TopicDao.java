@@ -1,7 +1,9 @@
 package qwe.asd.zxc.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import qwe.asd.zxc.models.Topic;
+import qwe.asd.zxc.repositories.TopicRepository;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,46 +18,28 @@ import java.util.stream.Collectors;
 @Repository
 public class TopicDao {
 
-    private Topic[] topicArray = {
-            new Topic("spring","Spring Framework","Spring Framework Description"),
-            new Topic("java","Core Java","Core Java Description"),
-            new Topic("javascript","JavaScript","Javascript Description")
-    };
-    private List<Topic> topics = new ArrayList<>(Arrays.asList(topicArray));
+    @Autowired
+    private TopicRepository topicRepository;
 
     public List<Topic> getTopics() {
-        return topics;
+        List<Topic> topic = new ArrayList<>();
+        topicRepository.findAll().forEach(topic::add);
+        return topic;
     }
 
     public Topic getTopic(String id) {
-        Predicate<Topic> predicate = topic -> topic.getId().equalsIgnoreCase(id);
-        List<Topic> listWithOneElement = topics.stream()
-                                                .filter(predicate)
-                                                .collect(Collectors.toList());
-        try {
-            Topic topic = topics.stream()
-                                .filter(predicate)
-                                .findFirst().get();
-        } catch (NoSuchElementException ex){
-            ex.printStackTrace();
-        }
-        System.out.println("output from TOPIC DAO !" + listWithOneElement.size());
-        return listWithOneElement.get(0);
+        return topicRepository.findOne(id);
     }
 
     public void postTopic(Topic topic) {
-        topics.add(topic);
+        topicRepository.save(topic);
     }
 
     public void putTopic(Topic topic, String id) {
-        Predicate<Topic> predicate = top -> top.getId().equalsIgnoreCase(id);
-        Topic oldTopic = topics.stream().filter(predicate).findFirst().get();
-        oldTopic.setName(topic.getName());
-        oldTopic.setDescription(topic.getDescription());
+        topicRepository.save(topic);
     }
 
     public void deleteTopic(String id) {
-        Predicate<Topic> predicate = top -> top.getId().equalsIgnoreCase(id);
-        topics.removeIf(predicate);
+        topicRepository.delete(id);
     }
 }

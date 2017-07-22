@@ -1,4 +1,4 @@
-package qwe.asd.zxc.dao;
+package qwe.asd.zxc.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import qwe.asd.zxc.models.Topic;
