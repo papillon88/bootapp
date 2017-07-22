@@ -1,4 +1,4 @@
-package qwe.asd.zxc.models;
+package qwe.asd.zxc.topics.models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

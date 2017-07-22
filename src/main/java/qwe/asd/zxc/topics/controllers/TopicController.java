@@ -1,11 +1,10 @@
-package qwe.asd.zxc.controllers;
+package qwe.asd.zxc.topics.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import qwe.asd.zxc.models.Topic;
-import qwe.asd.zxc.services.TopicService;
+import qwe.asd.zxc.topics.models.Topic;
+import qwe.asd.zxc.topics.services.TopicService;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**

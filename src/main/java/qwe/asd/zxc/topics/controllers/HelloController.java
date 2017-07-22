@@ -1,4 +1,4 @@
-package qwe.asd.zxc.controllers;
+package qwe.asd.zxc.topics.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

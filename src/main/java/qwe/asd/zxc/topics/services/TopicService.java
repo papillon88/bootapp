@@ -1,9 +1,9 @@
-package qwe.asd.zxc.services;
+package qwe.asd.zxc.topics.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import qwe.asd.zxc.dao.TopicDao;
-import qwe.asd.zxc.models.Topic;
+import qwe.asd.zxc.topics.dao.TopicDao;
+import qwe.asd.zxc.topics.models.Topic;
 
 import java.util.List;
 
